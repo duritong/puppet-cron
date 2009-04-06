@@ -11,20 +11,18 @@
 # the Free Software Foundation.
 #
 
-# modules_dir { \"cron\": }
-
 class cron {
     include cron::base
 }
 
 class cron::base {
-    package{'cron':
+    package{'vixie-cron':
         ensure => present,
     }
-    service{cron:
+    service{'crond':
         ensure => running,
         enable => true,
         hasstatus => true,
-        require => Package[cron],
+        require => Package['vixie-cron'],
     }
 }
