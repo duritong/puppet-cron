@@ -12,17 +12,8 @@
 #
 
 class cron {
-    include cron::base
-}
-
-class cron::base {
-    package{'vixie-cron':
-        ensure => present,
-    }
-    service{'crond':
-        ensure => running,
-        enable => true,
-        hasstatus => true,
-        require => Package['vixie-cron'],
+    case $operatingsystem {
+        centos: include cron::centos
+        default: include cron::base
     }
 }
