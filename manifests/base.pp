@@ -6,6 +6,6 @@ class cron::base {
         ensure => running,
         enable => true,
         hasstatus => true,
-        require => Package['vixie-cron'],
+        require => Package['cron'],
     }
 }
