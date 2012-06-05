@@ -11,7 +11,7 @@
 # the Free Software Foundation.
 #
 class cron {
-  case $operatingsystem {
+  case $::operatingsystem {
     centos : {
       include cron::centos
     }

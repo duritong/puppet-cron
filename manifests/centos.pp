@@ -1,6 +1,6 @@
 class cron::centos inherits cron::base {
   Package['cron'] {
-    name => $lsbmajdistrelease ? {
+    name => $::lsbmajdistrelease ? {
       5 => 'vixie-cron',
       default => 'cronie'
     }
