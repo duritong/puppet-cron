@@ -13,6 +13,7 @@
 class cron {
   case $::operatingsystem {
     centos: { include cron::centos }
+    amazon: { include cron::amazon }
     default: { include cron::base }
   }
 }
